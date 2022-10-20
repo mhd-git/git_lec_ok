@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+autonumber
+hide footbox
+
+remot_repo -> local_repo: git clone
+participant staging_area #green
+participant our_code #red
+
+our_code -> staging_area: git add .
+
+staging_area -> local_repo: git commit -m "init"
+
+local_repo -> remot_repo: git push
+
+' our_code -> staging_area -> local_repo -> remot_repo
+
+@enduml
